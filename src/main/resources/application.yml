@@ -1,0 +1,11 @@
+spring:
+
+  application:
+    name: spring-ai_mcp
+
+  profiles:
+    active: dev
+
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG

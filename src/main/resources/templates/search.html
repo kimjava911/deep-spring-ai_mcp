@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GitHub MCP Repository Search</title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    >
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+
+            <!-- Header -->
+            <div class="mb-4">
+                <h1 class="fw-bold">GitHub Repository Search (MCP)</h1>
+                <p class="text-muted mb-1">
+                    • Direct: MCP Tool 직접 호출
+                </p>
+                <p class="text-muted mb-0">
+                    • Action: LLM(callForAction) → 검색 쿼리 생성 → MCP Tool
+                </p>
+            </div>
+
+            <!-- Direct Search -->
+            <form
+                    class="card card-body mb-3 shadow-sm"
+                    th:action="@{/github/search/view}"
+                    method="get"
+            >
+                <div class="row g-2 align-items-center">
+                    <div class="col">
+                        <input
+                                type="text"
+                                name="q"
+                                class="form-control"
+                                placeholder="예: spring ai mcp"
+                                th:value="${query}"
+                                required
+                        >
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary">
+                            Direct Search
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Action Search -->
+            <form
+                    class="mb-4"
+                    th:action="@{/github/search/action/view}"
+                    method="get"
+            >
+                <input type="hidden" name="q" th:value="${query}">
+                <button type="submit" class="btn btn-outline-secondary">
+                    Action Search (callForAction)
+                </button>
+            </form>
+
+            <!-- Mode Info -->
+            <div
+                    th:if="${mode != null}"
+                    class="alert alert-info py-2"
+            >
+                검색 방식:
+                <strong
+                        th:text="${mode == 'action'
+                        ? 'Action 기반 (callForAction → MCP)'
+                        : 'Direct MCP 호출'}">
+                </strong>
+            </div>
+
+            <!-- Result -->
+            <div th:if="${result != null}" class="card shadow-sm">
+                <div class="card-header fw-semibold">
+                    검색 결과
+                </div>
+                <div class="card-body">
+                    <pre class="mb-0" th:text="${result}"></pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
