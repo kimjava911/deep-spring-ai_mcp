@@ -1,7 +1,8 @@
-package kr.java.springai_mcp;
+package kr.java.springai_mcp.service;
 
 import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.spec.McpSchema;
+import kr.java.springai_mcp.llm.AiModelRouter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

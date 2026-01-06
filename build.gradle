@@ -43,6 +43,7 @@ dependencies {
 
     // MCP
     implementation 'org.springframework.ai:spring-ai-starter-mcp-client'
+    implementation 'org.springframework.ai:spring-ai-starter-mcp-server-webmvc'
 }
 
 dependencyManagement {

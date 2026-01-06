@@ -1,4 +1,4 @@
-package kr.java.springai_mcp;
+package kr.java.springai_mcp.llm;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.google.genai.GoogleGenAiChatModel;
