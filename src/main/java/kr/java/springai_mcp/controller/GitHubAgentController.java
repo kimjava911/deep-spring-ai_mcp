@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequiredArgsConstructor
-public class GithubAgentController {
+public class GitHubAgentController {
 
     private final ChatClient chatClient;
 

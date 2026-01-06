@@ -5,11 +5,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 @Service
-public class GithubApiService {
+public class GitHubApiService {
 
     private final RestClient client;
 
-    public GithubApiService(@Value("${github.token}") String token) {
+    public GitHubApiService(@Value("${github.token}") String token) {
         this.client = RestClient.builder()
                 .baseUrl("https://api.github.com")
                 .defaultHeader("Authorization", "Bearer " + token)

@@ -1,6 +1,6 @@
 package kr.java.springai_mcp.controller;
 
-import kr.java.springai_mcp.service.GithubMcpSearchService;
+import kr.java.springai_mcp.service.GitHubMcpSearchService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 @Profile("dev")
-public class GithubSearchController {
+public class GitHubSearchController {
 
-    private final GithubMcpSearchService searchService;
+    private final GitHubMcpSearchService searchService;
 
     @GetMapping("/github/search")
     public String search(@RequestParam String q) {

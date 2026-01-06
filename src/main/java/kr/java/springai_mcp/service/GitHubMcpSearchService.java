@@ -16,7 +16,7 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 @Profile("dev")
-public class GithubMcpSearchService {
+public class GitHubMcpSearchService {
 
     private final List<McpSyncClient> mcpClients;
     private final AiModelRouter modelRouter;

@@ -1,15 +1,15 @@
 package kr.java.springai_mcp.tool;
 
-import kr.java.springai_mcp.service.GithubApiService;
+import kr.java.springai_mcp.service.GitHubApiService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class GithubSearchTool {
+public class GitHubSearchTool {
 
-    private final GithubApiService githubApiService;
+    private final GitHubApiService githubApiService;
 
     /**
      * 외부 MCP Client & 내부 ToolCalling에서 공통 사용
