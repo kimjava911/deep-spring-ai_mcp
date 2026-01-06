@@ -4,6 +4,7 @@ import io.modelcontextprotocol.client.McpSyncClient;
 import io.modelcontextprotocol.spec.McpSchema;
 import kr.java.springai_mcp.llm.AiModelRouter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Map;
  */
 @Service
 @RequiredArgsConstructor
+@Profile("dev")
 public class GithubMcpSearchService {
 
     private final List<McpSyncClient> mcpClients;

@@ -1,0 +1,39 @@
+spring:
+
+  thymeleaf:
+    cache: false
+
+  ai:
+    # https://groq.com/
+    openai:
+      base-url: https://api.groq.com/openai
+      api-key: ${GROQ_API_KEY}
+      chat:
+        options:
+          model: openai/gpt-oss-120b
+
+    # https://aistudio.google.com/
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY}
+        chat:
+          options:
+            model: gemini-2.5-flash
+
+    # MCP
+    mcp:
+      # Client
+      client:
+        enabled: false
+      # Server
+      server:
+        enabled: true
+        name: github-mcp
+        protocol: SSE   # webmvc 기본
+
+github:
+  token: ${GITHUB_TOKEN}
+
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG

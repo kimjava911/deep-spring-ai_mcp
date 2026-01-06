@@ -1,0 +1,50 @@
+spring:
+
+  thymeleaf:
+    cache: false
+
+  ai:
+    # https://groq.com/
+    openai:
+      base-url: https://api.groq.com/openai
+      api-key: {}
+      chat:
+        options:
+          model: openai/gpt-oss-120b
+
+    # https://aistudio.google.com/
+    google:
+      genai:
+        api-key: {}
+        chat:
+          options:
+            model: gemini-2.5-flash
+
+    # MCP
+    mcp:
+      # Client
+      client:
+        enabled: true
+        type: SYNC
+        stdio:
+          connections:
+            github:
+              # nodejs 설치 필수
+              command: npx
+              args: ["-y", "@modelcontextprotocol/server-github"]
+              env:
+                # https://github.com/settings/personal-access-tokens
+                GITHUB_TOKEN: {}
+      # Server
+      server:
+        enabled: true
+        name: github-mcp
+        protocol: SSE   # webmvc 기본
+
+# https://github.com/settings/personal-access-tokens
+github:
+  token: {}
+
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG
